@@ -58,9 +58,12 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
 
 <p align="center">
     <img src='https://img.shields.io/github/last-commit/J-LingShan/MathSnapLaTeX' alt='lastCommit'>
+    
      <img src='https://img.shields.io/github/commit-activity/m/J-LingShan/MathSnapLaTeX?color=yellow' alt='commit_activity'>
+     
      <img src='https://img.shields.io/github/commit-activity/t/J-LingShan/MathSnapLaTeX?color=red
 ' alt='CommitAll'>
+
      <img src='https://img.shields.io/github/languages/code-size/J-LingShan/MathSnapLaTeX.svg?style=flat-square' alt='codeSize'>
   </p>
 
