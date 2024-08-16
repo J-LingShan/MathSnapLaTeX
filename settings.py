@@ -1,5 +1,5 @@
 import os
-
+import sys
 import dashscope
 
 import fileProcess
@@ -16,7 +16,18 @@ class User:
         self.Messages = messages.Messages()
         self.parameter = {}  # 参数字典
         fileProcess.FileProcess.init_file(self.path)
-        fileProcess.FileProcess.init_file(self.path_prompt)
+
+
+        if getattr(sys,'frozen',False):
+            path = os.path.join(sys._MEIPASS, 'User Settings/prompt')
+            self.path_prompt = path
+            self.set_DataFileTO_KeyValueDir('prompt', path)
+        else:
+            if fileProcess.FileProcess.init_file(self.path_prompt) == 'newFile':
+                self.info["prompt"] = ' '
+
+
+
 
     def update(self):
         try:
@@ -26,7 +37,7 @@ class User:
 
             if r1 is False or len(r1.strip()) == 0:
                 api_key = input(f">info中未查询到key,请设置：")
-                self.setKeyValue(api_key)
+                self.setKeyValueFile(api_key)
                 print(">设置成功")
 
             elif r2 is False:
@@ -54,22 +65,35 @@ class User:
         else:
             return False
 
-    def getPrompt(self):
-        return self.getKeyValue("prompt",self.path_prompt)
+    def getPrompt(self,path_prompt=None):
+        if path_prompt is None:
+            path_prompt = self.path_prompt
+        return self.getKeyValue("prompt", path_prompt)
 
-    def setPrompt(self,prompt):
-        return fileProcess.FileProcess().setKeyValue(self.path_prompt,new_key='prompt',new_value=prompt)
+    def setPromptFile(self, prompt, path_prompt=None):
+        if path_prompt is None:
+            path_prompt = self.path_prompt
+        return fileProcess.FileProcess().setKeyValue(path_prompt,new_key='prompt',new_value=prompt)
 
-    def setKeyValue(self,value,key='api_key'):
-        return fileProcess.FileProcess().setKeyValue(self.path,new_key=key,new_value=value)
+    def setKeyValueFile(self,value,key='api_key', path=None):
+        if path is None:
+            path = self.path
+        return fileProcess.FileProcess().setKeyValue(path,new_key=key,new_value=value)
 
+    def setKeyValueDir(self, key, value):
+        self.info[key] = value
+
+    def set_DataFileTO_KeyValueDir(self,key,path):  # 通过文件对info进行赋值
+        value = self.getKeyValue(key, path)
+        if value is not False:
+            self.info[key] = value
 
 if __name__ == '__main__':
     User = User(model='qwen-vl-plus',MaaS=dashscope)
     # print(settings.get_key("api_key"))
 
-    print(User.setKeyValue('123'))
-    print(User.setPrompt("哈"))
+    print(User.setKeyValueFile('123'))
+    print(User.setPromptFile("哈"))
 
 
 
