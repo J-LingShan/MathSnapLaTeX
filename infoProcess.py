@@ -10,7 +10,8 @@ class InfoProcess:
         if not (text.startswith('$') and text.endswith('$')):
             # 如果不是，则添加 $
             # print("没有美元符号")
-            text = f'${text}$'
+            text = f'$${text}$$'
+
         return text
 
     def processResponse(self,response):

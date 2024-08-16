@@ -32,11 +32,11 @@ class Agent:
         kwargs.update(param_dict)
         model = self.User.model
         message = self.User.Messages.getMessages()
-        print(f"message{message}")
+        # print(f"message{message}")
         self.User.MaaS.api_key = self.User.getKeyValue()
         MaaS_2 = self.User.MaaS.MultiModalConversation
         response = MaaS_2.call(model=model, messages=message,**kwargs)
-        print(f"response{response}")
+        # print(f"response{response}")
         return response
 
 
