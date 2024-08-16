@@ -59,4 +59,5 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
 [![Last Commit](https://img.shields.io/github/last-commit/J-LingShan/MathSnapLaTeX)](https://github.com/J-LingShan/MathSnapLaTeX/commits/main) [![Monthly Commit Activity](https://img.shields.io/github/commit-activity/m/J-LingShan/MathSnapLaTeX?color=yellow)](https://github.com/J-LingShan/MathSnapLaTeX/graphs/contributors) [![Total Commit Activity](https://img.shields.io/github/commit-activity/t/J-LingShan/MathSnapLaTeX?color=red)](https://github.com/J-LingShan/MathSnapLaTeX/graphs/contributors) [![Code Size](https://img.shields.io/github/languages/code-size/J-LingShan/MathSnapLaTeX.svg?style=flat-square)](https://github.com/J-LingShan/MathSnapLaTeX)
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=J-LingShan/MathSnapLaTeX&type=Date)
+
+![Star History Chart](https://api.star-history.com/svg?repos=J-LingShan/MathSnapLaTeX&type=Date)
