@@ -1,0 +1,1 @@
+prompt=将图片中的数学公式转成latex代码，只能返回latex代码且latex代码不要用```包裹

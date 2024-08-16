@@ -10,11 +10,13 @@ class User:
     def __init__(self,model,MaaS):
         self.info = {'api_key': ''}
         self.path = 'User Settings/config.txt'
+        self.path_prompt = 'User Settings/prompt'
         self.model = model
         self.MaaS = MaaS
         self.Messages = messages.Messages()
         self.parameter = {}  # 参数字典
         fileProcess.FileProcess.init_file(self.path)
+        fileProcess.FileProcess.init_file(self.path_prompt)
 
     def update(self):
         try:
@@ -28,7 +30,8 @@ class User:
                 print(">设置成功")
 
             elif r2 is False:
-                return '>prompt获取失败'
+                print(">Error:prompt获取异常")
+                return '>Error:prompt获取异常'
 
             else:
                 self.info[key] = r1
@@ -42,18 +45,20 @@ class User:
         self.info = {'api_key': ''}
         fileProcess.FileProcess.delPath('User Settings')
 
-    def getKeyValue(self,key='api_key'):
-        result = fileProcess.FileProcess().getKeyValue(self.path,key)
+    def getKeyValue(self,key='api_key',path=None):
+        if path is None:
+            path = self.path
+        result = fileProcess.FileProcess().getKeyValue(path,key)
         if result is not False:
             return result
         else:
             return False
 
     def getPrompt(self):
-        return self.getKeyValue("prompt")
+        return self.getKeyValue("prompt",self.path_prompt)
 
     def setPrompt(self,prompt):
-        return fileProcess.FileProcess().setKeyValue(self.path,new_key='prompt',new_value=prompt)
+        return fileProcess.FileProcess().setKeyValue(self.path_prompt,new_key='prompt',new_value=prompt)
 
     def setKeyValue(self,value,key='api_key'):
         return fileProcess.FileProcess().setKeyValue(self.path,new_key=key,new_value=value)
