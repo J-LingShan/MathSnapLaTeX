@@ -55,6 +55,7 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
 
 # History
 ---
+  
   <p align="center">
 
     <br>
@@ -66,6 +67,7 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
     <br>
     
   </p>
+
 
 
 [![Star History Chart](https://api.star-history.com/svg?repos=J-LingShan/MathSnapLaTeX&type=Date)
