@@ -12,9 +12,7 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
 ![demo.gif](MD/image/demo.gif)
 
 ## Code
-
 ---
-
 安装依赖:
 
    ```bash
@@ -35,16 +33,14 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
 
 
 ## 应用 application
-
 ---
-
   <p align="center">
         <a href="https://gitee.com/FYOUZI/MathSnapLaTeX/releases"><img src='https://img.shields.io/badge/Gitee-%E4%B8%8B%E8%BD%BD-red' alt='releases'></a>
         <a href='https://github.com/J-LingShan/MathSnapLaTeX/releases'><img src='https://img.shields.io/badge/GitHub-download-red' alt='releases'></a>
   </p>
 
 
-# api-key
+# API-KEY
 ---
 [![阿里百炼](https://img.shields.io/badge/%E9%98%BF%E9%87%8C%E7%99%BE%E7%82%BC-API_KEY-red)](https://bailian.console.aliyun.com/?apiKey=1#/api-key-center)
 
