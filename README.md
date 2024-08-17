@@ -32,7 +32,7 @@ By taking screenshots of mathematical formulas, generate LaTeX math formulas
    ```
 
 
-## 应用 application
+## 应用 Application
 ---
   <p align="center">
         <a href="https://gitee.com/FYOUZI/MathSnapLaTeX/releases"><img src='https://img.shields.io/badge/Gitee-%E4%B8%8B%E8%BD%BD-red' alt='releases'></a>
