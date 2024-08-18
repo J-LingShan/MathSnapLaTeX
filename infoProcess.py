@@ -1,5 +1,6 @@
 import json
 
+
 class InfoProcess:
 
     def __init__(self):
@@ -11,7 +12,6 @@ class InfoProcess:
             # 如果不是，则添加 $
             # print("没有美元符号")
             text = f'$${text}$$'
-
         return text
 
     def processResponse(self,response):

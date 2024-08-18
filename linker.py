@@ -14,7 +14,6 @@ class Linker:
         self.Watcher = Watcher
 
 
-
     def Run(self):
         # 初始化
         self.User.update()
@@ -59,8 +58,6 @@ class Linker:
     #     return self.request()
 
 
-
-
     # def request(self, m=1):
     #     Agent = agents.Agent()
     #     if m == 1:
@@ -69,7 +66,6 @@ class Linker:
     #         response = Agent.request_agent_dir(self.parameter)
     #
     #     return response
-
 
 
 if __name__ == '__main__':

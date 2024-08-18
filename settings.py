@@ -17,7 +17,6 @@ class User:
         self.parameter = {}  # 参数字典
         fileProcess.FileProcess.init_file(self.path)
 
-
         if getattr(sys,'frozen',False):
             path = os.path.join(sys._MEIPASS, 'User Settings/prompt')
             self.path_prompt = path
@@ -25,9 +24,6 @@ class User:
         else:
             if fileProcess.FileProcess.init_file(self.path_prompt) == 'newFile':
                 self.info["prompt"] = ' '
-
-
-
 
     def update(self):
         try:
@@ -49,8 +45,6 @@ class User:
                 self.info['prompt'] = r2
         except FileNotFoundError as e:
             print(f'>数据文件异常：{e}')
-
-
 
     def reset_default(self):
         self.info = {'api_key': ''}
@@ -87,6 +81,7 @@ class User:
         value = self.getKeyValue(key, path)
         if value is not False:
             self.info[key] = value
+
 
 if __name__ == '__main__':
     User = User(model='qwen-vl-plus',MaaS=dashscope)

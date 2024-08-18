@@ -6,6 +6,8 @@ from PIL import ImageGrab
 import linker
 import infoProcess
 import fileProcess
+
+
 class Watcher:
 
     def __init__(self, model, Maas):
@@ -18,8 +20,6 @@ class Watcher:
             os.makedirs(self.temp_dir)
 
         linker.Linker(model=self.model,Maas=self.Maas,Watcher=self)
-
-
 
     def saveData(self,image):
         try:
@@ -59,17 +59,12 @@ class Watcher:
                     print(response)
                     fileProcess.FileProcess().delPath(self.returnPath)
 
-
-
             else:
                 pass
             time.sleep(self.refresh_time)
 
     def modify_refresh_time(self, refresh_time):
         self.refresh_time = refresh_time
-
-
-
 
 
 if __name__ == "__main__":

@@ -17,7 +17,6 @@ class FileProcess:
         except:
             print(">文件初始化异常")
 
-
     @staticmethod
     def setKeyValue(path,new_key, new_value):
         # print(f"key:{new_key},value:{new_value}")
@@ -40,24 +39,11 @@ class FileProcess:
 
                     lines.append(new_line)
 
-                    # print(f"lines{lines}")
-
-        #
-        # if not lines:
-        #     with open(path,'r+',encoding='utf8'):
-        #         new_line = f"{new_key}={new_value}"
-        #         lines.append(new_line)
-        # print(lines)
-
         if isnew is True:
             new_line = f"{new_key}={new_value}"
             lines.append(new_line)
 
         return FileProcess.writeData(path,lines)
-
-        # except:
-        #     print("序列写入失败")
-        #     return False
 
 
     @staticmethod
@@ -72,9 +58,6 @@ class FileProcess:
             file.write(i)
         file.close()
         return True
-        # except:
-        #     print("写入失败")
-        #     return False
 
     @staticmethod
     def delPath(del_path):
@@ -107,9 +90,6 @@ class FileProcess:
                 return False
         except:
             return False
-
-
-
 
 
 if __name__ == '__main__':
