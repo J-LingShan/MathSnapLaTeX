@@ -2,10 +2,12 @@ import os
 import time
 import dashscope
 import pyperclip
+import requests
 from PIL import ImageGrab
 import linker
 import infoProcess
 import fileProcess
+import apple
 
 
 class Watcher:
@@ -18,7 +20,6 @@ class Watcher:
         self.returnPath = f".//temp//temp.png"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
-
         linker.Linker(model=self.model,Maas=self.Maas,Watcher=self)
 
     def saveData(self,image):
@@ -57,6 +58,9 @@ class Watcher:
                     response = infoProcess.InfoProcess().processResponse(response)
                     pyperclip.copy(f"{response}")
                     print(response)
+                    url = 'http://127.0.0.1:2024/Request_Show'
+                    requests.post(url=url,data={"Data":response})
+
                     fileProcess.FileProcess().delPath(self.returnPath)
 
             else:

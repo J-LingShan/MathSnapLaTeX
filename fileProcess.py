@@ -92,6 +92,27 @@ class FileProcess:
             return False
 
 
+
+
+
+    @staticmethod
+    def haveKey():
+        key='api_key'
+        path = 'User Settings/config.txt'
+        r1 =  FileProcess().getKeyValue(path,key)
+        try:
+            if r1 is False or len(r1.strip()) == 0:
+                return False
+            else:
+                return True
+
+
+        except FileNotFoundError as e:
+            print(f'>数据文件异常：{e}')
+            return False
+
+
+
 if __name__ == '__main__':
     path = "User Settings/config.txt"
     file = FileProcess().setKeyValue(path,'api_key','5')

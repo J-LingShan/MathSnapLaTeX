@@ -1,10 +1,10 @@
 import os
 import sys
 import dashscope
-
+import requests
 import fileProcess
 import messages
-
+import webbrowser
 
 class User:
     def __init__(self,model,MaaS):
@@ -28,10 +28,13 @@ class User:
     def update(self):
         try:
             key = 'api_key'
-            r1 = self.getKeyValue(key)
+            url = 'http://127.0.0.1:2024/Request_Key'
+            r1 = requests.post(url=url,data='').text
+            print(f"r1:{r1}")
             r2 = self.getPrompt()
 
-            if r1 is False or len(r1.strip()) == 0:
+            if r1 is False or len(r1.strip()) == 0 or r1=='False':
+
                 api_key = input(f">info中未查询到key,请设置：")
                 self.setKeyValueFile(api_key)
                 print(">设置成功")

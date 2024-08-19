@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MathSnapLaTeX程序正在运行</title>
+    <style>
+        .display {
+            width: 600px;
+            height: 300px;
+            overflow-y: auto;
+            border: 2px solid #000;
+            padding: 10px;
+            resize: both;
+        }
+
+    </style>
+</head>
+<body>
+    <h1><title>MathSnapLaTeX程序正在运行</title></h1>
+    <div class = "display" >
+        {% for i in result %}
+            {{i}}<br>
+            <br>
+        {% endfor %}
+
+    </div>
+</body>
+</html>
