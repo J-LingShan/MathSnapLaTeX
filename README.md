@@ -54,6 +54,8 @@ python run.py
 
 MathSnapLaTeX使用的是Qwen-VL-Plus模型
 
+程序在第一次运行会自动要求用户进行API-KEY的填写
+
 # 清单 TODO
 
 ---
