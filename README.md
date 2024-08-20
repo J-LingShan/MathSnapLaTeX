@@ -42,7 +42,7 @@ python run.py
 
 <p align="center">
         <a href="https://gitee.com/FYOUZI/MathSnapLaTeX/releases"><img src='https://img.shields.io/badge/Gitee-%E4%B8%8B%E8%BD%BD-red' alt='releases'></a>
-        <a href='https://github.com/J-LingShan/MathSnapLaTeX/releases'><img src='https://img.shields.io/badge/GitHub-download-red' alt='releases'></a>
+        <a href='https://github.com/J-LingShan/MathSnapLaTeX'><img src='https://img.shields.io/badge/GitHub-download-red' alt='releases'></a>
   </p>
 
 # API-KEY
