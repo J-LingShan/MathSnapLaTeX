@@ -1,3 +1,5 @@
+import time
+
 from flask import Flask, render_template, request, redirect
 
 import fileProcess
@@ -7,6 +9,7 @@ app = Flask(__name__)
 
 iskey = False
 Data = []
+state = '运行中'
 
 def haveKey():
     global  iskey
@@ -26,10 +29,14 @@ def show():
 def start():
     haveKey()
     if not iskey:
+        print("这里")
         return render_template('setting.html')
     else:
         result = Data
-        return render_template("start.html",result=result)
+        if state == 'ApiKey异常':
+            return render_template('setting.html')
+        else:
+            return render_template("start.html",result=result,state=state)
 
 @app.route("/setting")
 def setting():
@@ -56,7 +63,12 @@ def setKeyValueFile(self,value,key='api_key', path=None):
 def Request_Show():
     haveKey()
     global Data
-    Data.append(request.form.get("Data"))
+    r = request.form.get("Data")
+    if r == 'Error:API_KEY exception':
+        global state
+        state = 'ApiKey异常'
+        r = 'ApiKey异常'
+    Data.append(r)
 
 
 @app.route("/Request_Key",methods=['post'])
@@ -70,8 +82,6 @@ def Request_Key():
         return 'False'
 
 
-def run():
-    app.run(port=2024,debug=True)
 
 
 

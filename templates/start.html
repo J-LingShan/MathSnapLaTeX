@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MathSnapLaTeX程序正在运行</title>
+    <meta http-equiv="refresh" content="3">
     <style>
         .display {
             width: 600px;
@@ -16,7 +17,8 @@
     </style>
 </head>
 <body>
-    <h1><title>MathSnapLaTeX程序正在运行</title></h1>
+    <h1>MathSnapLaTeX程序 {{state}}</h1>
+
     <div class = "display" >
         {% for i in result %}
             {{i}}<br>

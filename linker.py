@@ -49,9 +49,10 @@ class Linker:
             response = Agent.request_agent()
 
             return response
-        except self.User.MaaS.common.error.UploadFileException as e:
-            print(f">Error：{e}")
-            quit()
+        except:
+            # print(f">Error：{e}")
+            return f'Error:API_KEY exception'
+
 
     # def all_operates(self, role, content_type, content_info):
     #     self.setMessages(role, content_type, content_info)

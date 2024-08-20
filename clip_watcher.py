@@ -54,14 +54,16 @@ class Watcher:
                 # 监听成功则调用连接器
                 if self.saveData(last_image):
                     response = linker.Linker(model=self.model,Maas=self.Maas,Watcher=self).Run()
-
-                    response = infoProcess.InfoProcess().processResponse(response)
-                    pyperclip.copy(f"{response}")
-                    print(response)
                     url = 'http://127.0.0.1:2024/Request_Show'
-                    requests.post(url=url,data={"Data":response})
-
-                    fileProcess.FileProcess().delPath(self.returnPath)
+                    response = infoProcess.InfoProcess().processResponse(response)
+                    if response == 'Error:API_KEY exception':
+                        requests.post(url=url,data={"Data":'Error:API_KEY exception'})
+                        print(f"api异常")
+                    else:
+                        pyperclip.copy(f"{response}")
+                        print(response)
+                        requests.post(url=url,data={"Data":response})
+                        fileProcess.FileProcess().delPath(self.returnPath)
 
             else:
                 pass

@@ -15,8 +15,11 @@ class InfoProcess:
         return text
 
     def processResponse(self,response):
-        text = json.loads(str(response))['output']['choices'][0]['message']['content'][0]['text']
-        return self.wrap_with_dollars(text)
+        try:
+            text = json.loads(str(response))['output']['choices'][0]['message']['content'][0]['text']
+            return self.wrap_with_dollars(text)
+        except:
+            return 'Error:API_KEY exception'
 
 
 

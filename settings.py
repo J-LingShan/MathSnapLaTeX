@@ -1,5 +1,7 @@
 import os
 import sys
+import time
+
 import dashscope
 import requests
 import fileProcess
@@ -34,8 +36,12 @@ class User:
             r2 = self.getPrompt()
 
             if r1 is False or len(r1.strip()) == 0 or r1=='False':
-
-                api_key = input(f">info中未查询到key,请设置：")
+                print(f">info中未查询到key,请设置：")
+                r = 'False'
+                while r == 'False':
+                    r = requests.post(url=url,data='').text
+                    time.sleep(0.5)
+                api_key = r
                 self.setKeyValueFile(api_key)
                 print(">设置成功")
 
