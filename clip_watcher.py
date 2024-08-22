@@ -1,5 +1,7 @@
 import os
 import time
+import webbrowser
+
 import dashscope
 import pyperclip
 import requests
@@ -7,7 +9,7 @@ from PIL import ImageGrab
 import linker
 import infoProcess
 import fileProcess
-import apple
+import app
 
 
 class Watcher:
@@ -18,8 +20,18 @@ class Watcher:
         self.refresh_time = 0.1
         self.temp_dir = './/temp'
         self.returnPath = f".//temp//temp.png"
+        self.heartbeat = "True"
+
+        # 心跳检测
+        self.isHeartbeat()
+        if self.heartbeat == "False":
+            print("Web心跳丢失")
+            quit()
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+
+        url = "http://127.0.0.1:2024/"
+        webbrowser.open(url, new=0, autoraise=True)
         linker.Linker(model=self.model,Maas=self.Maas,Watcher=self)
 
     def saveData(self,image):
@@ -42,11 +54,12 @@ class Watcher:
         except:
             print(">Error:临时数据删除异常")
             return False
-
     def monitor(self):
         last_image = None
         print(f">监听中:{self.refresh_time}")
-        while True:
+        self.isHeartbeat()
+
+        while self.heartbeat == 'True':
             now_image = ImageGrab.grabclipboard()
             # 1.是截图 2.与上次截图不同 3.只有一张截图
             if now_image is not None and now_image != last_image and not isinstance(now_image, list):
@@ -67,11 +80,26 @@ class Watcher:
 
             else:
                 pass
+
+            self.isHeartbeat()
             time.sleep(self.refresh_time)
+        print("Web心跳丢失")
 
     def modify_refresh_time(self, refresh_time):
         self.refresh_time = refresh_time
 
+    # 心跳检测
+    def isHeartbeat(self):
+        try:
+            url = 'http://127.0.0.1:2024/heartbeat'
+            result = requests.post(url=url, data='').text
+            # print(f"Heartbeat:{result}")
+            if result == "True":
+                self.heartbeat = 'True'
+            else:
+                self.heartbeat = 'False'
+        except:
+            self.heartbeat = 'False'
 
 if __name__ == "__main__":
     Watcher(model='qwen-vl-plus',Maas=dashscope).monitor()

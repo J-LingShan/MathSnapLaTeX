@@ -81,7 +81,9 @@ def Request_Key():
     else:
         return 'False'
 
-
+@app.route("/heartbeat", methods=['post'])
+def heartbeat():
+    return "True"
 
 
 

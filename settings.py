@@ -31,7 +31,7 @@ class User:
         try:
             key = 'api_key'
             url = 'http://127.0.0.1:2024/Request_Key'
-            r1 = requests.post(url=url,data='').text
+            r1 = requests.post(url=url, data='').text
             # print(f"r1:{r1}")
             r2 = self.getPrompt()
 
