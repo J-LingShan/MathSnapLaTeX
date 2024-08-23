@@ -39,8 +39,13 @@ class User:
                 print(f">info中未查询到key,请设置：")
                 r = 'False'
                 while r == 'False':
-                    r = requests.post(url=url,data='').text
-                    time.sleep(0.5)
+                    if self.isHeartbeat()=='False':
+                        quit()
+                    try:
+                        r = requests.post(url=url,data='').text
+                        time.sleep(0.5)
+                    except:
+                        pass
                 api_key = r
                 self.setKeyValueFile(api_key)
                 print(">设置成功")
@@ -90,6 +95,20 @@ class User:
         value = self.getKeyValue(key, path)
         if value is not False:
             self.info[key] = value
+
+    @staticmethod
+    def isHeartbeat():
+        try:
+            url = 'http://127.0.0.1:2024/heartbeat'
+            result = requests.post(url=url, data='').text
+            print(f"Heartbeat:{result}")
+            if result == "True":
+                # print("我已经收到心脏信号了")
+                return 'True'
+            else:
+                return 'False'
+        except:
+            return 'False'
 
 
 if __name__ == '__main__':
