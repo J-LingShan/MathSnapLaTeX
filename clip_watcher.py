@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import webbrowser
 
@@ -26,7 +27,7 @@ class Watcher:
         self.isHeartbeat()
         if self.heartbeat == "False":
             print("Web心跳丢失")
-            quit()
+            sys.exit()
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
 
@@ -69,7 +70,7 @@ class Watcher:
                 self.isHeartbeat()
                 if self.heartbeat == "False":
                     print("Web心跳丢失")
-                    quit()
+                    sys.exit()
 
                 # 监听成功则调用连接器
                 if self.saveData(last_image):

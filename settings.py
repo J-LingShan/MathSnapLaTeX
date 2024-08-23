@@ -40,7 +40,7 @@ class User:
                 r = 'False'
                 while r == 'False':
                     if self.isHeartbeat()=='False':
-                        quit()
+                        sys.exit()
                     try:
                         r = requests.post(url=url,data='').text
                         time.sleep(0.5)
