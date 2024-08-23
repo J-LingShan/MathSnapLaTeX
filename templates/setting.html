@@ -30,6 +30,10 @@
             margin:0 auto;
         }
 
+        .cls_y {
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -41,25 +45,26 @@
 
         <div class="clsInput">
             <label for="API_KEY">API_KEY：</label>
-            <textarea id="API_KEY" name="API_KEY" required></textarea><br><br>
+            <textarea class="cls_y" id="API_KEY" name="API_KEY" required></textarea><br><br>
         </div>
 
         <div class="clsButton">
-            <button type="submit">提交</button>
+            <button class="cls_y" type="submit">提交</button>
         </div>
 </form>
 
     <div class = 'clsBt'>
         <br>
-            <button id="getApi">ApiKey获取</button>
+            <button class="cls_y" id="getApi">ApiKey获取</button>
         </a>
     </div>
 
 <script>
     document.getElementById("getApi").addEventListener("click",() => {
-        let apikey = 'apikey='+'123'
+        let apikey =''
+        let txt = 'apikey=' + apikey
         if(apikey !=='') {
-            window.alert(apikey);
+            window.alert(txt);
         }
         else {
             window.open("https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fbailian.console.aliyun.com%2F%3FapiKey%3D1&clearRedirectCookie=1&lang=zh#/api-key-center")
