@@ -1,3 +1,4 @@
+import sys
 import time
 
 from flask import Flask, render_template, request, redirect
@@ -18,12 +19,13 @@ def haveKey():
 
 
 @app.route('/')
-def show():
+def index():
     haveKey()
     if not iskey:
         return render_template('setting.html')
     else:
         return render_template('index.html')
+
 
 @app.route("/start")
 def start():
@@ -85,6 +87,9 @@ def Request_Key():
 def heartbeat():
     return "True"
 
+# @app.route("/quit")
+# def shutdown():
+#     quit()
 
 
 if __name__ == "__main__":

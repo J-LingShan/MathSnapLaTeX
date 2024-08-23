@@ -14,14 +14,20 @@
             resize: both;
         }
 
+        .cls {
+            width: 35%;   /*父容器宽度*/
+            margin:0 auto;
+        }
+
     </style>
 </head>
 <body>
-    <h1>MathSnapLaTeX程序 {{state}}</h1>
-
-    <div class = "display" >
+    <h1 class="cls" >MathSnapLaTeX程序 {{state}}</h1>
+    <br>
+    <div class = "display cls" >
         {% for i in result %}
-            {{i}}<br>
+            {{i}}
+            <br>
             <br>
         {% endfor %}
 

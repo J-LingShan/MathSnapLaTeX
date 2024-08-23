@@ -62,9 +62,9 @@ MathSnapLaTeX使用的是Qwen-VL-Plus模型
 
 - [x] 心跳检测
 
-- [ ] Web界面优化
+- [x] Web界面优化
 
-- [ ] 服务端关闭操作
+- [x] apikey可以直接显示，自定义
 
 - [ ] 修复request_agent2  Fix request_agent2
 

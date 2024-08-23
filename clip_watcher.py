@@ -57,13 +57,20 @@ class Watcher:
     def monitor(self):
         last_image = None
         print(f">监听中:{self.refresh_time}")
-        self.isHeartbeat()
 
-        while self.heartbeat == 'True':
+        while True:
             now_image = ImageGrab.grabclipboard()
             # 1.是截图 2.与上次截图不同 3.只有一张截图
             if now_image is not None and now_image != last_image and not isinstance(now_image, list):
                 last_image = now_image
+                print("心跳检测中")
+
+                # 心跳检测
+                self.isHeartbeat()
+                if self.heartbeat == "False":
+                    print("Web心跳丢失")
+                    quit()
+
                 # 监听成功则调用连接器
                 if self.saveData(last_image):
                     response = linker.Linker(model=self.model,Maas=self.Maas,Watcher=self).Run()
@@ -81,7 +88,7 @@ class Watcher:
             else:
                 pass
 
-            self.isHeartbeat()
+            # self.isHeartbeat()
             time.sleep(self.refresh_time)
         print("Web心跳丢失")
 

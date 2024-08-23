@@ -5,23 +5,37 @@
     <style>
         button {
             font-size: 16px;
-            padding: 10px 20px;
+            padding: 10px 50px;
             margin: 5px;
+
         }
 
+        #id1 {
+            color: cornflowerblue;
+        }
+
+        .cls {
+            width: 30%;   /*父容器宽度*/
+            margin:0 auto;
+        }
+
+        .clsBt {
+            width: 20%;   /*父容器宽度*/
+            margin:0 auto;
+        }
 
     </style>
     <title>MathSnapLaTeX</title>
 </head>
 <body>
-    <h1>MathSnapLaTeX</h1>
-    <div >
+    <h1 id = "id1" class = "cls">MathSnapLaTeX</h1>
+    <div class = 'clsBt'>
         <a href="/start">
-            <button>开始</button>
+            <button >开始</button>
         </a>
     </div>
 
-    <div >
+    <div class = 'clsBt'>
         <a href="/setting">
             <button>设置</button>
         </a>
